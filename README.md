@@ -36,3 +36,10 @@ Production build:
 ```bash
 $ cd setup
 $ npm run build:dist
+```
+
+## Features
+- Basic input validation
+- Clickable suggestions
+- Uses sessionStorage for fetched JSON
+- Highlights search term in displayed results
