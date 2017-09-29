@@ -21,7 +21,8 @@ export default class Page extends React.Component {
 	// Set default prop for data placeholder
 	static defaultProps = {
 		suggestList: [{
-			country: '...'
+			country: 'Country',
+			capital: 'Capital'
 		}]
 	}
 
