@@ -45,7 +45,10 @@ export default class Page extends React.Component {
 
 	// Fetch json data for user input
 	fetchData = (input) => {
-
+		if (sessionStorage.getItem(input)) {
+			this.fetchSessionStorage(input);
+			return;
+		}
 		const that = this;
 
 		axios.get('https://code.totaralms.com/countries-json.php', {
@@ -55,10 +58,21 @@ export default class Page extends React.Component {
 			}
 		}).then(function(response) {
 			that.setState({ suggestList: response.data.results});
+			that.setSessionStorage(input, response.data.results);
 		}).catch(function() {
 			that.setState({ suggestList: that.props.suggestList});
 			throw new Error('Bad response from server');
 		});
+	}
+
+	// Reduce number of requests by storing fetched data
+	setSessionStorage = (input, data) => {
+		sessionStorage.setItem(input, JSON.stringify(data));
+	}
+
+	// Collect stored data
+	fetchSessionStorage = (input) => {
+		this.setState({ suggestList: JSON.parse(sessionStorage.getItem(input))});
 	}
 
 	// Render content
