@@ -22,7 +22,9 @@ export default class Page extends React.Component {
 	static defaultProps = {
 		suggestList: [{
 			country: 'Country',
-			capital: 'Capital'
+			capital: 'Capital',
+			htmlCountry: 'Country',
+			htmlCapital: 'Capital'
 		}]
 	}
 
@@ -58,6 +60,7 @@ export default class Page extends React.Component {
 				limit: 50
 			}
 		}).then(function(response) {
+			response.data.results = that.highlightSearchTerm(input, response.data.results);
 			that.setState({ suggestList: response.data.results});
 			that.setSessionStorage(input, response.data.results);
 		}).catch(function() {
@@ -73,7 +76,21 @@ export default class Page extends React.Component {
 
 	// Collect stored data
 	fetchSessionStorage = (input) => {
-		this.setState({ suggestList: JSON.parse(sessionStorage.getItem(input))});
+		let collectedData = JSON.parse(sessionStorage.getItem(input));
+		collectedData = this.highlightSearchTerm(input, collectedData);
+		this.setState({ suggestList: collectedData });
+	}
+
+	// Highlight Search term in results
+	highlightSearchTerm = (input, data) => {
+
+		// Loop through results
+		for (let value of data) {
+			// Wrap search term in span and include in search result data
+			value.htmlCountry = value.country.replace(new RegExp(input,'i'),'<span>$&</span>');
+			value.htmlCapital = value.capital.replace(new RegExp(input,'i'),'<span>$&</span>');
+		}
+		return data;
 	}
 
 	// Render content
@@ -88,6 +105,7 @@ export default class Page extends React.Component {
 				<SearchSuggest
 					searchData={this.state.suggestList}
 					onSuggestClick={this.onSuggestClick}
+					inputVal={this.state.searchTerm}
 				/>
 			</article>
 		);
