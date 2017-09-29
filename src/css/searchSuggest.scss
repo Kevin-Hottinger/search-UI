@@ -1,5 +1,6 @@
 $li-colour: #fff;
 $li-background: #333;
+$span-highlight: #00ff29;
 
 .search-suggest {
 	h1 {
@@ -20,5 +21,10 @@ $li-background: #333;
 		display: inline-block;
 		margin: 5px;
 		padding: 10px;
+
+		span {
+			color: $span-highlight;
+		}
 	}
+
 }
