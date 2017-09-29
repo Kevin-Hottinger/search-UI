@@ -5,7 +5,7 @@ import PropTypes from '../../../setup/node_modules/prop-types';
 
 // Display list Item
 const SearchSuggestOption = props => (
-	<li>
+	<li onClick={props.onSuggestClick(props.country)}>
 		{props.country}
 	</li>
 );
@@ -13,6 +13,7 @@ const SearchSuggestOption = props => (
 // Ensure required props are passed
 SearchSuggestOption.propTypes = {
 	country: PropTypes.string.isRequired,
+	onSuggestClick: PropTypes.func.isRequired
 };
 
 export default SearchSuggestOption;

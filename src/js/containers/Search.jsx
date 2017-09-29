@@ -37,6 +37,12 @@ export default class Page extends React.Component {
 		e.preventDefault();
 	}
 
+	// Event handler for suggestion clicks
+	onSuggestClick = (country) => () => {
+		this.setState({ searchTerm: country});
+		this.fetchData(country);
+	}
+
 	// Fetch json data for user input
 	fetchData = (input) => {
 
@@ -66,6 +72,7 @@ export default class Page extends React.Component {
 				/>
 				<SearchSuggest
 					searchData={this.state.suggestList}
+					onSuggestClick={this.onSuggestClick}
 				/>
 			</article>
 		);

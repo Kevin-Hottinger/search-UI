@@ -18,6 +18,7 @@ const SearchSuggest = props => (
 					<SearchSuggestOption
 						key={result.country}
 						country={result.country}
+						onSuggestClick={props.onSuggestClick}
 					/>
 				);
 			})}
@@ -29,6 +30,7 @@ const SearchSuggest = props => (
 // Ensure required props are passed
 SearchSuggest.propTypes = {
 	searchData: PropTypes.array.isRequired,
+	onSuggestClick: PropTypes.func.isRequired
 };
 
 export default SearchSuggest;
