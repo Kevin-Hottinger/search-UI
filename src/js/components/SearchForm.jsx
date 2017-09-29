@@ -2,6 +2,8 @@
 import React from '../../../setup/node_modules/react';
 // Add support for proptypes
 import PropTypes from '../../../setup/node_modules/prop-types';
+// Import form styles
+import '../../css/searchForm.scss';
 
 // Display input form
 const SearchForm = props => (
