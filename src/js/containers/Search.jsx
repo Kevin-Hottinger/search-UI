@@ -15,7 +15,8 @@ export default class Page extends React.Component {
 	// Initialise state
 	state = {
 		searchTerm: '',
-		suggestList: this.props.suggestList
+		suggestList: this.props.suggestList,
+		validationFailed: false
 	}
 
 	// Set default prop for data placeholder
@@ -31,9 +32,19 @@ export default class Page extends React.Component {
 	// Event handler for input field
 	onInputChange = (e) => {
 		const input = e.target.value;
+
+		// Check input for invalid characters
+		if (/[^a-zA-Z \-'_]+$/.test(input)) {
+			this.setState({ validationFailed: true});
+			return;
+		}
+		else {
+			this.setState({ validationFailed: false});
+		}
+
 		this.setState({ searchTerm: input});
 		this.fetchData(input);
-	};
+	}
 
 	// Prevent form from submitting
 	onFormSubmit = (e) => {
@@ -101,6 +112,7 @@ export default class Page extends React.Component {
 					onInputChange={this.onInputChange}
 					onFormSubmit={this.onFormSubmit}
 					inputVal={this.state.searchTerm}
+					validationFailed={this.state.validationFailed}
 				/>
 				<SearchSuggest
 					searchData={this.state.suggestList}
