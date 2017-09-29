@@ -2,7 +2,7 @@
   "name": "search-component",
   "version": "0.0.1",
   "description": "Search component with suggestive feedback",
-  "main": "bundle.js",
+  "main": "index.js",
   "author": "Kevin Hottinger",
   "license": "ISC",
   "devDependencies": {
@@ -33,10 +33,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kevin-Hottinger/placeholder.git"
+    "url": "git+https://github.com/Kevin-Hottinger/search-UI.git"
   },
   "bugs": {
-    "url": "https://github.com/Kevin-Hottinger/placeholder/issues"
+    "url": "https://github.com/Kevin-Hottinger/search-UI/issues"
   },
-  "homepage": "https://github.com/Kevin-Hottinger/placeholder#readme"
+  "homepage": "https://github.com/Kevin-Hottinger/search-UI#readme"
 }
