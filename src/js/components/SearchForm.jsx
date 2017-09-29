@@ -11,8 +11,8 @@ const SearchForm = props => (
 	<form className="search-form" role="search" onSubmit={props.onFormSubmit}>
 		<input
 			type="search"
-			placeholder="Search for country"
-			aria-label="Search for country"
+			placeholder="Search for country or city"
+			aria-label="Search for country or city"
 			maxLength="100"
 			onChange={props.onInputChange}
 			value={props.inputVal}

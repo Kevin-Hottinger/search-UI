@@ -18,6 +18,7 @@ const SearchSuggest = props => (
 					<SearchSuggestOption
 						key={result.country}
 						country={result.country}
+						capital={result.capital}
 						onSuggestClick={props.onSuggestClick}
 					/>
 				);
