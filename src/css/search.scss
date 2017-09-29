@@ -1,0 +1,16 @@
+$out-of-scope-background: #eee;
+$search-background: #fff;
+$search-font-colour: #000;
+
+
+body {
+	background: $out-of-scope-background;
+}
+
+.search {
+	background: $search-background;
+	border: 1px solid;
+	color: $search-font-colour;
+	margin: 1em;
+	padding: 2em;
+}

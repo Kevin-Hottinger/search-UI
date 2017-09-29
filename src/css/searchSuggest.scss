@@ -1,0 +1,24 @@
+$li-colour: #fff;
+$li-background: #333;
+
+.search-suggest {
+	h1 {
+		border-bottom: 1px solid;
+		padding: 0 0 5px;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0 1em;
+	}
+
+	li {
+		background: $li-background;
+		border-radius: 5px;
+		color: $li-colour;
+		cursor: pointer;
+		display: inline-block;
+		margin: 5px;
+		padding: 10px;
+	}
+}

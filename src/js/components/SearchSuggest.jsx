@@ -4,6 +4,8 @@ import React from '../../../setup/node_modules/react';
 import PropTypes from '../../../setup/node_modules/prop-types';
 // Import SearchSuggestOption component
 import SearchSuggestOption from '../components/SearchSuggestOption.jsx';
+// Import suggestion list styles
+import '../../css/searchSuggest.scss';
 
 // Display suggestion section and loop through countries
 const SearchSuggest = props => (

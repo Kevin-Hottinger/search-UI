@@ -2,6 +2,8 @@
 import React from '../../../setup/node_modules/react';
 // Include axios
 import axios from '../../../setup/node_modules/axios';
+// Import component styles
+import '../../css/search.scss';
 // Import SearchForm component
 import SearchForm from '../components/SearchForm.jsx';
 // Import SearchSuggest component
