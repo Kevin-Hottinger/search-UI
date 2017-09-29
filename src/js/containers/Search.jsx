@@ -62,7 +62,9 @@ export default class Page extends React.Component {
 					onFormSubmit={this.onFormSubmit}
 					inputVal={this.state.searchTerm}
 				/>
-				<SearchSuggest/>
+				<SearchSuggest
+					searchData={this.state.suggestList}
+				/>
 			</article>
 		);
 	}
